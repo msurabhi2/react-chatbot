@@ -1,6 +1,6 @@
 
 const express = require('express');
-const dialogFlow = require('dialogflow');
+const dialogflow = require('dialogflow');
 const config = require('../config/keys')
 const bodyParser = require('body-parser');
 const structjson = require('./structjson')
