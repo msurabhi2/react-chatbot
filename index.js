@@ -2,7 +2,6 @@
 require('./models/Registration');
 const chatbot = require('./chatbot/chatbot');
 const express = require('express');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const config = require('./config/keys')
 const app = express();
@@ -10,9 +9,6 @@ const app = express();
 //connect to mongoose db
 const mongoose = require('mongoose');
 mongoose.connect(config.mongoURI, { useNewUrlParser: true });
-app.use(cors({
-  origin: '*'
-}));
 
 app.use(bodyParser.json());
 
@@ -34,10 +30,6 @@ app.post('/api/df_event_query', async (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   // js and css files
   app.use(express.static('client/build'));
-
-  app.use(cors({
-    origin: '*'
-  }));
 
   // index.html for all page routes
   const path = require('path');
